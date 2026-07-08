@@ -1,0 +1,2 @@
+D:\mingw64\bin\ar.exe qc libmy_core.a CMakeFiles/my_core.dir/str/ranker.c.obj CMakeFiles/my_core.dir/str/query_processor.c.obj CMakeFiles/my_core.dir/str/indexer.c.obj CMakeFiles/my_core.dir/str/file_reader.c.obj
+D:\mingw64\bin\ranlib.exe libmy_core.a

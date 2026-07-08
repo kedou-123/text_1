@@ -15,11 +15,12 @@
 
 
 int main() {
+    system("chcp 65001 > nul"); 
     printf("========== 轻量文本检索工具 ==========\n\n");
 
     // ---------- 第1步：读取文档 ----------
     int doc_count = 0;
-    Document* docs = read_all_files("./data", &doc_count);
+    Document* docs = read_all_files("../data", &doc_count);
     if (docs == NULL || doc_count == 0) {
         printf("错误：在 ./data 文件夹下没有找到任何 .txt 文件！\n");
         printf("请确保 data 文件夹里有测试文件。\n");
@@ -38,52 +39,66 @@ int main() {
 
     // ---------- 第3步：进入交互查询循环 ----------
     printf("请输入关键词进行检索（输入 'exit' 或 'quit' 退出程序）\n");
-    printf("提示：支持多个词用空格分隔，例如 'hello world'\n");
+    printf("提示：支持多个词用空格分隔，也支持短语搜索（例如 \"hello world\"）\n");
+    printf("提示：短语搜索记得用英文双引号括起来\n");
     printf("----------------------------------------\n");
 
-    char input_line[512];
-    while (1) {
-        printf("\n>> 请输入查询: ");
-        fgets(input_line, sizeof(input_line), stdin);
+   char input_line[512];
+while (1) {
+    printf("\n>> 请输入查询: ");
+    fgets(input_line, sizeof(input_line), stdin);
 
-        // 去掉输入末尾的换行符
-        size_t len = strlen(input_line);
-        if (len > 0 && input_line[len - 1] == '\n') {
-            input_line[len - 1] = '\0';
-        }
+    // 去掉换行符
+    size_t len = strlen(input_line);
+    if (len > 0 && input_line[len - 1] == '\n') {
+        input_line[len - 1] = '\0';
+    }
 
-        // 检查是否退出
-        if (strcmp(input_line, "exit") == 0 || strcmp(input_line, "quit") == 0) {
-            break;
-        }
+    if (strcmp(input_line, "exit") == 0 || strcmp(input_line, "quit") == 0) {
+        break;
+    }
+    if (strlen(input_line) == 0) {
+        continue;
+    }
 
-        // 如果输入为空，跳过本次循环
-        if (strlen(input_line) == 0) {
-            continue;
-        }
+    // ---------- 判断是否为短语（检测首尾双引号） ----------
+    char query_for_parse[512];
+    int is_phrase = 0;
+    len = strlen(input_line);
+    if (len >= 2 && input_line[0] == '"' && input_line[len - 1] == '"') {
+        // 去掉首尾引号
+        strcpy(query_for_parse, input_line + 1);
+        query_for_parse[len - 2] = '\0';   // 去掉最后的引号
+        is_phrase = 1;
+    } else {
+        strcpy(query_for_parse, input_line);
+    }
 
-        // ---------- 第4步：解析查询词 ----------
-        char** tokens = parse_query(input_line);
-        if (tokens == NULL) {
-            printf("解析查询失败，请重新输入。\n");
-            continue;
-        }
+    // ---------- 解析查询词 ----------
+    char** tokens = parse_query(query_for_parse);
+    if (tokens == NULL) {
+        printf("解析查询失败，请重新输入。\n");
+        continue;
+    }
 
-        // 数一数一共切出了几个词
-        int token_count = 0;
-        while (tokens[token_count] != NULL) {
-            token_count++;
-        }
-
-        if (token_count == 0) {
-            printf("没有识别到有效关键词，请重新输入。\n");
-            free_query_tokens(tokens);
-            continue;
-        }
+    int token_count = 0;
+    while (tokens[token_count] != NULL) {
+        token_count++;
+    }
+    if (token_count == 0) {
+        printf("没有识别到有效关键词，请重新输入。\n");
+        free_query_tokens(tokens);
+        continue;
+    }
 
         // ---------- 第5步：搜索并排序（取前5名） ----------
         int top_k = 5;
-        int* results = search_and_rank(index,docs,doc_count, tokens, token_count, top_k);
+        int* results = NULL;
+    if (is_phrase) {
+        results = search_phrase(index, docs, doc_count, tokens, token_count, top_k);
+    } else {
+        results = search_and_rank(index, docs, doc_count, tokens, token_count, top_k);
+    }
         if (results == NULL) {
             printf("搜索失败，请重试。\n");
             free_query_tokens(tokens);

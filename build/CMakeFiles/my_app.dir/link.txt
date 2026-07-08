@@ -1,0 +1,3 @@
+D:\mingw64\bin\cmake.exe -E rm -f CMakeFiles\my_app.dir/objects.a
+D:\mingw64\bin\ar.exe qc CMakeFiles\my_app.dir/objects.a @CMakeFiles\my_app.dir\objects1.rsp
+D:\mingw64\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\my_app.dir/objects.a -Wl,--no-whole-archive -o my_app.exe -Wl,--out-implib,libmy_app.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\my_app.dir\linkLibs.rsp

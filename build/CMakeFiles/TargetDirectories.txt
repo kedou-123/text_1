@@ -1,0 +1,4 @@
+E:/learn_code/text_1/build/CMakeFiles/my_core.dir
+E:/learn_code/text_1/build/CMakeFiles/my_app.dir
+E:/learn_code/text_1/build/CMakeFiles/edit_cache.dir
+E:/learn_code/text_1/build/CMakeFiles/rebuild_cache.dir

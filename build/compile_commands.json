@@ -1,0 +1,32 @@
+[
+{
+  "directory": "E:/learn_code/text_1/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe  @CMakeFiles/my_core.dir/includes_C.rsp -g -o CMakeFiles\\my_core.dir\\str\\ranker.c.obj -c E:\\learn_code\\text_1\\str\\ranker.c",
+  "file": "E:/learn_code/text_1/str/ranker.c",
+  "output": "CMakeFiles/my_core.dir/str/ranker.c.obj"
+},
+{
+  "directory": "E:/learn_code/text_1/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe  @CMakeFiles/my_core.dir/includes_C.rsp -g -o CMakeFiles\\my_core.dir\\str\\query_processor.c.obj -c E:\\learn_code\\text_1\\str\\query_processor.c",
+  "file": "E:/learn_code/text_1/str/query_processor.c",
+  "output": "CMakeFiles/my_core.dir/str/query_processor.c.obj"
+},
+{
+  "directory": "E:/learn_code/text_1/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe  @CMakeFiles/my_core.dir/includes_C.rsp -g -o CMakeFiles\\my_core.dir\\str\\indexer.c.obj -c E:\\learn_code\\text_1\\str\\indexer.c",
+  "file": "E:/learn_code/text_1/str/indexer.c",
+  "output": "CMakeFiles/my_core.dir/str/indexer.c.obj"
+},
+{
+  "directory": "E:/learn_code/text_1/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe  @CMakeFiles/my_core.dir/includes_C.rsp -g -o CMakeFiles\\my_core.dir\\str\\file_reader.c.obj -c E:\\learn_code\\text_1\\str\\file_reader.c",
+  "file": "E:/learn_code/text_1/str/file_reader.c",
+  "output": "CMakeFiles/my_core.dir/str/file_reader.c.obj"
+},
+{
+  "directory": "E:/learn_code/text_1/build",
+  "command": "D:\\mingw64\\bin\\gcc.exe  @CMakeFiles/my_app.dir/includes_C.rsp -g -o CMakeFiles\\my_app.dir\\app\\main.c.obj -c E:\\learn_code\\text_1\\app\\main.c",
+  "file": "E:/learn_code/text_1/app/main.c",
+  "output": "CMakeFiles/my_app.dir/app/main.c.obj"
+}
+]

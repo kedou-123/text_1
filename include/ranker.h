@@ -13,6 +13,9 @@
 // 返回值：返回排序后的文档ID数组（按分数从高到低）
 EXPORT int* search_and_rank(IndexEntry* index, Document* docs, int doc_count, char** tokens, int token_count, int top_k);
 
+// 短语搜索：要求 tokens 按顺序连续出现在文档中
+EXPORT int* search_phrase(IndexEntry* index, Document* docs, int doc_count, 
+                          char** tokens, int token_count, int top_k);
 // D同学的输出函数：把结果打印到屏幕上
 EXPORT void print_results(int* doc_ids, int top_k, Document* docs);
 

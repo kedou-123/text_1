@@ -1,3 +1,4 @@
+
 #ifndef COMMON_H
 #define COMMON_H
 
@@ -26,6 +27,9 @@ typedef struct {
     int doc_id;           // 出现在哪篇文档
     int frequency;        // 在这篇文档里出现了几次
     // 先预留，不做短语检索可以先空着
+    int* positions;       // 该词在该文档中出现的位置数组（词序号，从0开始）
+    int pos_count;        // 实际位置数量
+    int pos_capacity;     // 当前容量（用于 realloc）
 } Posting;
 
 // 【重要】如果你打算用 uthash 做哈希索引，这个结构体是核心
@@ -40,3 +44,4 @@ typedef struct {
 } IndexEntry;
 
 #endif
+

@@ -1,4 +1,4 @@
-#include "C:/Users/34641/Desktop/text_1/include/file_reader.h"
+#include "../include/file_reader.h"
 #include <dirent.h>      // 用于遍历文件夹
 #include <sys/stat.h>    // 用于判断文件类型
 
