@@ -1,1 +1,5 @@
-i dont know what happend
+Deep learning is a subfield of machine learning that uses deep neural networks to simulate the hierarchical structure of the human brain. The core of deep learning is automatic feature extraction, which makes it exceptionally good at processing unstructured data such as images, audio, and text.
+
+Convolutional neural networks (CNNs) have achieved great success in computer vision tasks, while recurrent neural networks (RNNs) and Transformer architectures have dominated the field of natural language processing. The goal of natural language processing is to make computers understand, generate, and translate human languages.
+
+In recent years, pre-trained language models based on deep learning, such as BERT and GPT, have reached human-level performance on many NLP tasks. Many breakthroughs in artificial intelligence are attributed to advances in deep learning, which has driven the deployment of medical image analysis, autonomous driving, and intelligent customer service. Although machine learning and deep learning differ in some aspects, they complement each other and jointly promote the third wave of AI.

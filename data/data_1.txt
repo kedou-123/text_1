@@ -1,1 +1,5 @@
-apple is a fruit
+Artificial intelligence (AI) is a major branch of computer science dedicated to creating systems that can perform tasks typically requiring human intelligence. These tasks include visual perception, speech recognition, decision-making, and language translation. AI research began in the 1950s and has experienced several booms and winters. In recent years, thanks to the rapid growth of computing power and the explosion of big data, AI has made remarkable breakthroughs.
+
+Machine learning is one of the core areas of AI, enabling computers to learn from data and improve performance without explicit programming. Deep learning, a subset of machine learning, uses multi-layered neural networks to simulate the way the human brain processes information. Natural language processing is another important field that focuses on enabling computers to understand, interpret, and generate human language.
+
+AI is now widely applied in medical diagnosis, financial analysis, autonomous driving, education, and many other areas, profoundly transforming the way people live and work.
