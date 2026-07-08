@@ -1,6 +1,6 @@
 项目简介：Mini Text Search Engine 是一个基于 C 语言的命令行文本检索工具。输入一批文本文件后自动建立索引，支持关键词检索并返回最相关的 Top-K 文档。
 环境要求：需安装C语言编译器（GCC 8.0+版本），确保开发环境依赖完整。
-快速开始：将源码下载至本地，进入项目根目录，
+快速开始：将源码下载至本地，进入项目根目录，编译命令“gcc -Iinclude str\file_reader.c str\indexer.c str\query_processor.c str\ranker.c app\main.c -o search.exe”，运行“.\search.exe --index data”，即可启动程序。
 项目目录结构：text_1/
             ├── include/            # 头文件目录
             │   ├── common.h       # 公共结构体定义（Document / IndexEntry / Posting）
