@@ -14,20 +14,27 @@
 #include "../include/ranker.h"
 
 
-int main() {
+int main(int argc, char* argv[]) {
     system("chcp 65001 > nul"); 
     printf("========== 轻量文本检索工具 ==========\n\n");
 
     // ---------- 第1步：读取文档 ----------
+    // 检查命令行参数
+    if (argc < 3 || strcmp(argv[1], "--index") != 0) {
+    printf("用法: .\\search.exe --index <文档文件夹路径>\n");
+    return -1;
+    }
+    char* folder_path = argv[2];
+
     int doc_count = 0;
-    Document* docs = read_all_files("../data", &doc_count);
+    Document* docs = read_all_files(folder_path, &doc_count);
     if (docs == NULL || doc_count == 0) {
-        printf("错误：在 ./data 文件夹下没有找到任何 .txt 文件！\n");
-        printf("请确保 data 文件夹里有测试文件。\n");
-        return -1;
+    printf("错误：在 %s 文件夹下没有找到任何 .txt 文件！\n", folder_path);
+    printf("请确保 data 文件夹里有测试文件。\n");
+    return -1;
     }
     printf("✅ 成功读取 %d 篇文档。\n\n", doc_count);
-
+    
     // ---------- 第2步：构建倒排索引 ----------
     IndexEntry* index = build_index(docs, doc_count);
     if (index == NULL) {
